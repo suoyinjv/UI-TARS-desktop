@@ -132,6 +132,16 @@ export const runAgent = async (
   if (settings.operator === 'nutjs') {
     operator = new NutJSElectronOperator();
   } else {
+    const { browserAvailable } = getState();
+    if (!browserAvailable) {
+      setState({
+        ...getState(),
+        status: StatusEnum.ERROR,
+        errorMsg:
+          'Browser is not available. Please install Chrome and try again.',
+      });
+      return;
+    }
     operator = await DefaultBrowserOperator.getInstance(
       false,
       false,
