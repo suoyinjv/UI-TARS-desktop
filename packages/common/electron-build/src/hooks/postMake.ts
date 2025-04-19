@@ -85,6 +85,15 @@ export const postMake: ForgeHookMap['postMake'] = async (
     lineWidth: -1,
   });
   fs.writeFileSync(ymlPath, ymlStr);
+  // write yml to out/
+  fs.writeFileSync(
+    path.join(
+      process.cwd(),
+      'out',
+      updateYmlMap[ymlKey as keyof typeof updateYmlMap],
+    ),
+    ymlStr,
+  );
 
   makeResults.push({
     artifacts: [ymlPath],
