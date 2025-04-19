@@ -4,6 +4,7 @@ on:
     paths:
       - 'packages/common/**'
       - 'packages/ui-tars/**'
+      - '.github/workflows/e2e-ui-tars.yml'
       - 'apps/ui-tars/**'
   push:
     branches:

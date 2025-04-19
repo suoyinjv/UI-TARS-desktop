@@ -4,6 +4,7 @@ on:
     paths:
       - 'packages/common/**'
       - 'packages/agent-tars/**'
+      - '.github/workflows/e2e-agent-tars.yml'
       - 'apps/agent-tars/**'
   push:
     branches:
